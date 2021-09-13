@@ -1,0 +1,52 @@
+
+Entête (balise header) à personnalier
+
+Partie principale (balise main)
+partie menus de navigation : balise nav inclue ou pas dans une zone latérale (balise aside)
+section 1 (balise section): lexique et définitions (balise dfn)
+article 1 (balise article)
+
+Lexique : (titre balises h1 à h6)
+
+UI : user interface (US) interface utilisateur (IHM : interface homme machine) ; UI design : conception d'interface utilisateur (wireframe + scénarios ...)
+UX design : User Experiences design : conception d'une expérience utilisateur (sources : https://www.usabilis.com/ux-design/ ; https://www.1min30.com/dictionnaire-du-web/ux-design-user-experience)
+Persona : méthode de conception utilisant des fiches personnages détaillées pour orienter la conception du site afin de répondre à ses envies et aptitudes.
+
+Bibliographie ; ressources
+
+https://fr.wikipedia.org/wiki/Interface_utilisateur#Conception_de_l'interface 
+
+Cahier des charges : (attribut title="compléter le code de la page pour satisfaire le cahier des charges")
+
+la page est un document de type html (utiliser <!DOCTYPE html> )
+la balise parent (root) de toute l'arborescence du DOM (Document objet model) est la balise html
+html possède au moins deux enfants : head et body ; accessoirement plusieurs enfants script
+
+le bloc d'entête (balise head) contient toutes les méta-données et précisions utiles pour paramétrer la page comme :
+     - le titre affiché dans l'onglet de la page (balise title fille obligatoire de head) ;
+     - les méta méta-données qui précisent : l'encodage utf-8, le nom de l'auteur, les mots clefs (dépassé), etc ... ;
+     - un bloc de style local (balise style) contenant du css ;
+     - des liens vers des pages de ressources externes (souvent des feuilles de style en css) (balise link) ;
+     - des scripts js (mais ils sont plus utiles en fin de page).
+
+le bloc body (balise body) contient tout ce qui est affiché dans la page
+
+les balises sémantiques imbriquée ou non définissent le squelette (backbone env wireframe) de la page : main, header, footer, section, article, aside ;
+privilégiez les balises sémantiques à l'utilisation abusive de la balise générique div ;
+
+pour les listes statiques, utiliser les balises ul, ol, li, dl, dt, df ;
+les listes déroulantes utilisent les balises select, option et optgroup
+toutes les abréviations et acronymes seront explicités à l'aide d'une balise abbr et de son attribut title
+des paragraphes dépliants pourront être utilisés : balises details + summary
+tous les mots et expression en langue étrangères doivent être affichés en italique (balises i plutôt que em)
+les titres peuvent être hierarchisés sur 6 niveaux (balises de h1 à h6) et la numérotation automatisée (en css) avec des compteurs
+les tableaux utilisent au minimum les balises table, tr et td, mais les balises thead, tbody, tfoot, th, caption permettent de créer des structure plus riches et complexes
+les zones graphiques sont de deux types :  
+    - la balise svg définie une zone de graphiques vectoriels (indépendants de l'échelle) ;
+    - la balise canvas définie une zone de dessin point par point (bitmap) et nécessite l'emploi du javascript.
+les audios et vidéos utilisent des balises dédiées (audio et video)
+les formulaires (balise form) peuvent contenir des boutons (balise button), des zones d'entrées de différents types (input type= "..."), 
+des listes déroulantes (select + option), des zones de texte (balise textarea)
+
+tout cela est défini dans le site de référence w3school.com qui permet de tester en ligne tous les codes ...
+
