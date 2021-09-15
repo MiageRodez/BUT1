@@ -13,14 +13,28 @@
  <body>
 
    <article id="lienPages">
-     
+     <!-- la liste des liens vers les pages annexes sera insérée ici par le programme en JS -->
    </article>
 
   <script>
      // définition d'un ensemble (= set) = toutes les valeurs sont uniques !
-     var groupes = [];
-     // "objet" JS semblable à un dictionnaire python
-     var travauxPratiques = { tp1 : "", tp2 : "" }
+         
+     // "objet" javascript dont le format est identique à celui d'un dictionnaire python ou d'une liste nommée en Java.
+     var explications = {"imagesEchelles" : "exemple d'utilisation de JS pour rendre interactif un tuto (ici changer l'échelle d'une image)"};
+     
+     // création de liste de lien
+     var listeLiens = document.createElement("UL");
+     for (adresse in explications) {
+       let lien = document.createElement("A");
+       lien.href = "./pages/" + adresse + ".html";
+       lien.title = explications[adresse];
+       lien.target = "_blank";
+       listeLiens.appendChild(lien);
+     }    
+     $("lienPages").appendChild(listeLiens);
+         
+         
+     var travauxPratiques = { tp1 : "", tp2 : "" };
      
   </script>
 
