@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!-- (ceci est un commentaire au format HTML)
+       Le code suivant montre comment le langage JS rend le site
+       interactif en créant automatiquement ce qui peut être
+       automatisé.
+       Auteur : Joël Dendaletche
+-->
+	<head>
+    	<meta charset="utf-8" /> <!-- encodage unicode -->
+    	<title>figures</title>
+    	<style> /* ici le code est en CSS ! */
+        	main {
+  				/* Set "compteur" to 0 */
+  				counter-reset: compteur;
+			}
+        	aside { 
+        		position : absolute; top : 80%; left : 60%;
+            }
+            figcaption::before {
+            	counter-increment: compteur; /* incrémente de 1 le compteur */
+            	content : "Fig. " counter(compteur) " : ";
+            }
+         </style> <!-- le code redevient du HTML à partir d'ici -->
+    </head>
+	<body> <!-- zone d'affichage des éléments de la page Web -->
+	  <main>
+		<h1 id="titre">Images à <span id="spNEchelles">3</span> différentes échelles</h1>
+		<label for="inpNEchelles"></label><input id="inpNEchelles" type="range" min ="2" max="6" value = "3" oninput="$i2('spNEchelles',this.value);" />
+		<figure>
+  			<img src="" alt="" >
+  			<figcaption>Trulli, Puglia, Italy.</figcaption>
+		</figure>
+
+		<figure>
+  			<img src="" alt="" >
+  			<figcaption></figcaption>
+		</figure>
+
+		<figure>
+  			<img src="" alt="" >
+  			<figcaption></figcaption>
+		</figure>
+
+	<aside>
+    	<h2>Liste des figures :</h2>
+        <!-- la liste sera construire par le script JS ci-dessous -->
+	</aside>
+      </main>
+      <footer>
+      
+          <ul><li>
+		En décimal 123<sub>(10)</sub> = 1 x 10<sup>2</sup> + 2 x 10<sup>1</sup> + 3 x 10<sup>0</sup> 
+		</li><li>
+		En binaire 123<sub>(10)</sub> = 1 x 2<sup>6</sup> + 1 x 2<sup>5</sup>+ 1 x 2<sup>4</sup> + 1 x 2<sup>3</sup> + 0 x 2<sup>2</sup>+ 1 x 2<sup>1</sup> + 1 x 2<sup>0</sup> soit 0b111011 ;
+		</li></ul>
+        <fieldset id="debug"><legend>Informations de debugage</legend></fieldset>
+  </footer>
+</body>
+<script>
+	//    raccourcis d'écriture
+    function $(id) { return document.getElementById(id) } // récupérer l'élément
+    function $i(id, contenu) {$(id).innerHTML += contenu + "<br/>";} // ajouter un contenu
+    function $i2(id, contenu) {$(id).innerHTML = contenu} // ajouter un seul contenu
+    function d(contenu) {$i("debug", contenu)} // afficher les infos dans l'élément debug
+    function clear(id) { $(id).innerHTML = ""; } // effacer le contenu
+    
+	// récupération de la listes des légendes de figures : type = HTML collection (liste d'objets)
+	var legendesFigures = document.getElementsByTagName("figcaption");
+    var legendeDeBase = legendesFigures[0].innerHTML;
+    d("légende de Base = "+legendeDeBase );
+    var echelles = [100,50,25];
+    d("Liste des échelles (en %) : " + echelles);
+    let i = 0;
+    for (legende of legendesFigures) {legende.innerHTML = legendeDeBase + " " + echelles[i] + "%";
+    	i++;
+    }
+    //legendesFigures.indexOf(legende)
+    
+	var n = legendesFigures.length; // nombre total de légendes
+    d("Nombre total de légendes : " + n);
+    // récupération de la liste des éléments image et attribution de la source unique et d'autres attributs importants
+    var images = document.getElementsByTagName("IMG");
+    
+    i = 0;
+    for (image of images) {
+    	image.src = "https://www.w3schools.com/tags/pic_trulli.jpg";
+        image.alt = "Trulli du sud est de l'Italie (Pouilles)";
+        image.title = image.alt;
+        image.style.width = echelles[i] + "%"; i++;
+    }
+    //d("index de "+images[1]+ " : "+images.indexOf(images[1]));
+	
+    var zoneListe = document.getElementsByTagName("aside")[0];
+	var listeNumerotee = document.createElement("ol");
+    zoneListe.appendChild(listeNumerotee);
+    
+	for(figure of legendesFigures) {
+    	let ligne = document.createElement("li");
+		ligne.innerHTML = figure.innerHTML;
+        listeNumerotee.appendChild(ligne);
+	}
+    
+
+
+</script>
+
+</html>
