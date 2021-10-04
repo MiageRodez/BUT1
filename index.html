@@ -36,6 +36,36 @@
    <article id="lienPages">
      <!-- la liste des liens vers les pages annexes sera insérée ici par le programme en JS -->
    </article>
+        
+        <footer>
+               <hr/>
+               <h1>Ressources diverses</h1>
+               <ul>
+                      <li><a href="" title="" target="_blank"></a></li>
+                      <li><a href="" title="" target="_blank"></a></li>
+                      <li><a href="" title="" target="_blank"></a></li>
+                      <li><a href="" title="" target="_blank"></a></li>
+                      <li><a href="" title="" target="_blank"></a></li>
+                      <li><a href="" title="" target="_blank"></a></li>
+               </ul>
+               <hr/>
+               <h1>Sites perso de cours de </h1>
+               <form>
+                      <table><caption>Listes déroulantes pour trouver le site d'un étudiant</caption>
+                             <tr><td><label for="selGroupe"></label></td><td>
+                      <select id="selGroupe">
+                             <option>G1</option>
+                             <option>G2</option>
+                             <option>G3</option>
+                             <option>G4</option>
+                                    </select></td></tr>
+                             <tr></td>
+                      <label for="selEtudiant"></label></td><td>
+               <select id="selEtudiant"></select></td></tr>
+                      </table>
+               </form>
+        
+        </footer>
 
   <script>
      // définition d'un ensemble (= set) = toutes les valeurs sont uniques !
@@ -54,8 +84,12 @@
      }    
      $("lienPages").appendChild(listeLiens);
          
-         
+     
      var travauxPratiques = { tp1 : "", tp2 : "" };
+         
+     var URL_Base = ".github.io/Cours/";
+     var pseudos1 = ["","","",""];
+     var tp1Etudiants = ["ALBERTINI Jarod", "ALZURIA Mathys", "BARBET Romain", "BEAUFILS Mathis", "BENMIMOUN Idris", "BLANCHARD Jules", "BOIS Axel", "BONNET Julie", "BOYER Djedline", "BRIBACH Ahmed", "BRUEL Marion", "CHEBANA Mohammed Ali", "COSATTI Thibauld"]; 
      
   </script>
 
