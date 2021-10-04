@@ -64,31 +64,54 @@
                <select id="selEtudiant"></select></td></tr>
                       </table>
                </form>
-        
+        <p id="debug"></p>
         </footer>
 
   <script>
+     // raccourci
+     function $(id) { return document.getElementById(id)}
      // définition d'un ensemble (= set) = toutes les valeurs sont uniques !
-         
+          
      // "objet" javascript dont le format est identique à celui d'un dictionnaire python ou d'une liste nommée en Java.
-     var explications = {"imagesEchelles" : "exemple d'utilisation de JS pour rendre interactif un tuto (ici changer l'échelle d'une image)"};
+     var explications = {rien : ""};
      
-     // création de liste de lien
-     var listeLiens = document.createElement("UL");
-     for (adresse in explications) {
+     //document.getElementById("debug").innerHTML = "mpkjg";  
+      
+     var URL_Base = ".github.io/Cours/";
+     var etudiants = [{prenom:"Jarod", nom:"ALBERTINI", numTD:1, numTP:1, pseudo: "Symbolisme"},{prenom:"Mathys", nom:"ALZURIA", numTD:1, numTP:1, pseudo: ""},{prenom:"Romain", nom:"BARBET", numTD:1, numTP:1, pseudo: "RomainB122 "},{prenom:"Mathis", nom:"BEAUFILS", numTD:1, numTP:1, pseudo: "BeaufilsM"},{prenom:"Idris", nom:"BENMIMOUN", numTD:1, numTP:1, pseudo: ""},{prenom:"Jules", nom:"BLANCHARD", numTD:1, numTP:1, pseudo: "JulesBlanchard"},{prenom:"Axel", nom:"BOIS", numTD:1, numTP:1, pseudo: "aVeRySsWood"},{prenom:"Julie", nom:"BONNET", numTD:1, numTP:1, pseudo: "SrtaJulie"},{prenom:"Djedline", nom:"BOYER", numTD:1, numTP:1, pseudo: "Djede "},{prenom:"Ahmed", nom:"BRIBACH", numTD:1, numTP:1, pseudo: ""},{prenom:"Marion", nom:"BRUEL", numTD:1, numTP:1, pseudo: "marionbruel81 "},{prenom:"Mohammed Ali", nom:"CHEBANA", numTD:1, numTP:1, pseudo: ""},{prenom:"Thibauld", nom:"COSATTI", numTD:1, numTP:1, pseudo: "Thibauld113 "},{prenom:"Romain", nom:"COURBAIZE", numTD:1, numTP:2, pseudo: "Roman0x"},{prenom:"Benjamin", nom:"DA SILVA", numTD:1, numTP:2, pseudo: "BenjaminDaS "},{prenom:"Sébastien", nom:"DA SILVA OLIVEIRA ", numTD:1, numTP:2, pseudo: "ReDhix"},{prenom:"Dorian", nom:"DEBUYS", numTD:1, numTP:2, pseudo: "doriandebuys "},{prenom:"Adrien", nom:"DELON", numTD:1, numTP:2, pseudo: "AdrienDelon"},{prenom:"Mewen", nom:"DERRUAU", numTD:1, numTP:2, pseudo: "mew2003 "},{prenom:"Simon", nom:"DOUZIECH", numTD:1, numTP:2, pseudo: "Simon.douziech"},{prenom:"Anthony", nom:"ENJALBERT", numTD:1, numTP:2, pseudo: "anthoo21 "},{prenom:"Vincent", nom:"FAURE ", numTD:1, numTP:2, pseudo: "Vyyncee"},{prenom:"Matéo", nom:"FAUSSURIER", numTD:1, numTP:2, pseudo: "Mateofsr "},{prenom:"Maxime", nom:"FROISSANT ", numTD:1, numTP:2, pseudo: "Xokto"},{prenom:"Jean-François", nom:"FROMENT", numTD:1, numTP:2, pseudo: "JEFFROMENT "},{prenom:"Emmanuel", nom:"GOMES-SOARES", numTD:1, numTP:2, pseudo: ""},{prenom:"Antoine", nom:"GOUZY", numTD:1, numTP:2, pseudo: ""},{prenom:"Mohammed", nom:"IDRISSI", numTD:2, numTP:3, pseudo: "momoidrissi24"},{prenom:"Diego", nom:"IGLESIAS", numTD:2, numTP:3, pseudo: "Dieg12 "},{prenom:"Gauthier", nom:"JALBAUD", numTD:2, numTP:3, pseudo: ""},{prenom:"Rémi", nom:"JAUZION", numTD:2, numTP:3, pseudo: ""},{prenom:"Yasmine", nom:"KHEMIR", numTD:2, numTP:3, pseudo: ""},{prenom:"Antoine", nom:"LALA", numTD:2, numTP:3, pseudo: ""},{prenom:"Tony", nom:"LAPEYRE", numTD:2, numTP:3, pseudo: ""},{prenom:"Clément", nom:"LAURIE", numTD:2, numTP:3, pseudo: "ClemFR "},{prenom:"Armand", nom:"MACE", numTD:2, numTP:3, pseudo: ""},{prenom:"Guillaume", nom:"MEDARD", numTD:2, numTP:3, pseudo: "Medardg "},{prenom:"Gabriel", nom:"MONCZEWSKI ", numTD:2, numTP:3, pseudo: "CacheCaille"},{prenom:"Oskar", nom:"MOREL", numTD:2, numTP:4, pseudo: "ouiouibaguet "},{prenom:"Eléanor", nom:"MOURGUES", numTD:2, numTP:3, pseudo: "EleanorMrg"},{prenom:"Thomas", nom:"NALIX", numTD:2, numTP:4, pseudo: "thomas-nalix "},{prenom:"Pierre", nom:"NEETESONNE", numTD:2, numTP:4, pseudo: ""},{prenom:"Lorentin", nom:"NICOLAS", numTD:2, numTP:4, pseudo: ""},{prenom:"Axel", nom:"PEDRERO", numTD:2, numTP:4, pseudo: ""},{prenom:"Raphaël", nom:"QUERON", numTD:2, numTP:4, pseudo: "Kernixx "},{prenom:"Emilien", nom:"RESTOUEIX", numTD:2, numTP:4, pseudo: "Restoueix-Emilien"},{prenom:"Jules", nom:"RUMEAU", numTD:2, numTP:4, pseudo: "julesrumeau "},{prenom:"Charlie", nom:"SARRATO-BOUDET", numTD:2, numTP:3, pseudo: ""},{prenom:"Sylvain", nom:"SAUREL", numTD:2, numTP:4, pseudo: "Sylvainsaurel "},{prenom:"Enzo", nom:"SOULIER", numTD:2, numTP:4, pseudo: ""},{prenom:"Aymeric", nom:"THEVENET", numTD:2, numTP:4, pseudo: "Aym3ric "},{prenom:"Romain", nom:"TRIMOUILLE", numTD:2, numTP:4, pseudo: "romainT1"},{prenom:"Théo", nom:"VERSEPUECH", numTD:2, numTP:4, pseudo: "theovsp"},{prenom:"Lucas", nom:"WIOROWSKI", numTD:2, numTP:4, pseudo: "LucasWio"}];
+     
+     
+     //var liste = document.createElement("OL");
+     var footer = document.getElementsByTagName("FOOTER")[0];
+     var tableau = document.createElement("TABLE");
+     footer.appendChild(tableau);
+     
+     let titreTableau = document.createElement("CAPTION");
+     titreTableau.innerHTML = "&Eacute;tudiants du BUT1 2021-2022";
+     tableau.appendChild(titreTableau);
+     
+     let ligneTitre = document.createElement("TR");
+     ligneTitre.innerHTML = "<th>&Eacute;tudiant(e)</th><th>TP</th><th>TD</th><th>Site de cours</th>";
+     tableau.appendChild(ligneTitre);
+     
+     let i;
+     for(let etudiant of etudiants) {
+     	let ligne = document.createElement("TR");
+     	//let ligne = document.createElement("LI");
+        ligne.innerHTML = "<td>" + etudiant.prenom + "  " + etudiant.nom + " </td><td>" + etudiant.numTP + " </td><td> " + etudiant.numTD+ "</td><td id='lien"+ i +"'>" + "" + "</td>";
+  
+        tableau.appendChild(ligne);
+        i++;
+     }
+     
+/*
        let lien = document.createElement("A");
-       lien.href = "./pages/" + adresse + ".html";
+       lien.href = "https://" + adresse + ".html";
        lien.title = explications[adresse];
        lien.target = "_blank";
        listeLiens.appendChild(lien);
      }    
-     $("lienPages").appendChild(listeLiens);
-         
-     
-     var travauxPratiques = { tp1 : "", tp2 : "" };
-         
-     var URL_Base = ".github.io/Cours/";
-     var etudiants = [{prenom:"Jarod", nom:"ALBERTINI", numTD:1, numTP:1, pseudo: "Symbolisme"},{prenom:"Mathys", nom:"ALZURIA", numTD:1, numTP:1, pseudo: ""},{prenom:"Romain", nom:"BARBET", numTD:1, numTP:1, pseudo: "RomainB122 "},{prenom:"Mathis", nom:"BEAUFILS", numTD:1, numTP:1, pseudo: "BeaufilsM"},{prenom:"Idris", nom:"BENMIMOUN", numTD:1, numTP:1, pseudo: ""},{prenom:"Jules", nom:"BLANCHARD", numTD:1, numTP:1, pseudo: "JulesBlanchard"},{prenom:"Axel", nom:"BOIS", numTD:1, numTP:1, pseudo: "aVeRySsWood"},{prenom:"Julie", nom:"BONNET", numTD:1, numTP:1, pseudo: "SrtaJulie"},{prenom:"Djedline", nom:"BOYER", numTD:1, numTP:1, pseudo: "Djede "},{prenom:"Ahmed", nom:"BRIBACH", numTD:1, numTP:1, pseudo: ""},{prenom:"Marion", nom:"BRUEL", numTD:1, numTP:1, pseudo: "marionbruel81 "},{prenom:"Mohammed Ali", nom:"CHEBANA", numTD:1, numTP:1, pseudo: ""},{prenom:"Thibauld", nom:"COSATTI", numTD:1, numTP:1, pseudo: "Thibauld113 "},{prenom:"Romain", nom:"COURBAIZE", numTD:1, numTP:2, pseudo: "Roman0x"},{prenom:"Benjamin", nom:"DA SILVA", numTD:1, numTP:2, pseudo: "BenjaminDaS "},{prenom:"Sébastien", nom:"DA SILVA OLIVEIRA ", numTD:1, numTP:2, pseudo: "ReDhix"},{prenom:"Dorian", nom:"DEBUYS", numTD:1, numTP:2, pseudo: "doriandebuys "},{prenom:"Adrien", nom:"DELON", numTD:1, numTP:2, pseudo: "AdrienDelon"},{prenom:"Mewen", nom:"DERRUAU", numTD:1, numTP:2, pseudo: "mew2003 "},{prenom:"Simon", nom:"DOUZIECH", numTD:1, numTP:2, pseudo: "Simon.douziech"},{prenom:"Anthony", nom:"ENJALBERT", numTD:1, numTP:2, pseudo: "anthoo21 "},{prenom:"Vincent", nom:"FAURE ", numTD:1, numTP:2, pseudo: "Vyyncee"},{prenom:"Matéo", nom:"FAUSSURIER", numTD:1, numTP:2, pseudo: "Mateofsr "},{prenom:"Maxime", nom:"FROISSANT ", numTD:1, numTP:2, pseudo: "Xokto"},{prenom:"Jean-François", nom:"FROMENT", numTD:1, numTP:2, pseudo: "JEFFROMENT "},{prenom:"Emmanuel", nom:"GOMES-SOARES", numTD:1, numTP:2, pseudo: ""},{prenom:"Antoine", nom:"GOUZY", numTD:1, numTP:2, pseudo: ""},{prenom:"Mohammed", nom:"IDRISSI", numTD:2, numTP:3, pseudo: "momoidrissi24"},{prenom:"Diego", nom:"IGLESIAS", numTD:2, numTP:3, pseudo: "Dieg12 "},{prenom:"Gauthier", nom:"JALBAUD", numTD:2, numTP:3, pseudo: ""},{prenom:"Rémi", nom:"JAUZION", numTD:2, numTP:3, pseudo: ""},{prenom:"Yasmine", nom:"KHEMIR", numTD:2, numTP:3, pseudo: ""},{prenom:"Antoine", nom:"LALA", numTD:2, numTP:3, pseudo: ""},{prenom:"Tony", nom:"LAPEYRE", numTD:2, numTP:3, pseudo: ""},{prenom:"Clément", nom:"LAURIE", numTD:2, numTP:3, pseudo: "ClemFR "},{prenom:"Armand", nom:"MACE", numTD:2, numTP:3, pseudo: ""},{prenom:"Guillaume", nom:"MEDARD", numTD:2, numTP:3, pseudo: "Medardg "},{prenom:"Gabriel", nom:"MONCZEWSKI ", numTD:2, numTP:3, pseudo: "CacheCaille"},{prenom:"Oskar", nom:"MOREL", numTD:2, numTP:4, pseudo: "ouiouibaguet "},{prenom:"Eléanor", nom:"MOURGUES", numTD:2, numTP:3, pseudo: "EleanorMrg"},{prenom:"Thomas", nom:"NALIX", numTD:2, numTP:4, pseudo: "thomas-nalix "},{prenom:"Pierre", nom:"NEETESONNE", numTD:2, numTP:4, pseudo: ""},{prenom:"Lorentin", nom:"NICOLAS", numTD:2, numTP:4, pseudo: ""},{prenom:"Axel", nom:"PEDRERO", numTD:2, numTP:4, pseudo: ""},{prenom:"Raphaël", nom:"QUERON", numTD:2, numTP:4, pseudo: "Kernixx "},{prenom:"Emilien", nom:"RESTOUEIX", numTD:2, numTP:4, pseudo: "Restoueix-Emilien"},{prenom:"Jules", nom:"RUMEAU", numTD:2, numTP:4, pseudo: "julesrumeau "},{prenom:"Charlie", nom:"SARRATO-BOUDET", numTD:2, numTP:3, pseudo: ""},{prenom:"Sylvain", nom:"SAUREL", numTD:2, numTP:4, pseudo: "Sylvainsaurel "},{prenom:"Enzo", nom:"SOULIER", numTD:2, numTP:4, pseudo: ""},{prenom:"Aymeric", nom:"THEVENET", numTD:2, numTP:4, pseudo: "Aym3ric "},{prenom:"Romain", nom:"TRIMOUILLE", numTD:2, numTP:4, pseudo: "romainT1"},{prenom:"Théo", nom:"VERSEPUECH", numTD:2, numTP:4, pseudo: "theovsp"},{prenom:"Lucas", nom:"WIOROWSKI", numTD:2, numTP:4, pseudo: "LucasWio"}];
+     $("lienPages").appendChild(listeLiens);*/
   </script>
 
 </body>
