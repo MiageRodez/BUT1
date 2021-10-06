@@ -1,0 +1,22 @@
+/*345678.012345678.012345678.012345678.012345678.012345678.012345678.012345678.
+          Largeur 80 colonnes
+
+  Feuille de style pour les tableaux
+
+
+*/
+
+table.collapse { /* bordures fusionnées */
+  border-collapse : collapse;
+}
+
+caption:hover { /* survol du titre du tableau */
+    color : gray;
+    background : orange;
+}
+
+/* class damier alternance de cases noires et blanches */
+tr:nth-child(2n+1) td.damier:nth-child(2n) {
+    color : black;
+    background : white;
+}
