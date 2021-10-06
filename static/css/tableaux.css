@@ -1,0 +1,49 @@
+/*345678.012345678.012345678.012345678.012345678.012345678.012345678.012345678.
+          Largeur 80 colonnes
+
+  Feuille de style pour les tableaux
+
+
+*/
+
+table.collapse { /* bordures fusionnées */
+  border-collapse : collapse;
+}
+table.centre { /* centrage de table dans body (son conteneur) */
+	margin : auto;
+	}
+table {
+  border : groove orange 10px; 
+  background : lightblue;
+}
+
+caption:hover { /* survol du titre du tableau */
+    color : gray;
+    background : orange;
+}
+
+/* class damier alternance de cases noires et blanches 
+   --------------------------------------------------- */
+/* Les éléments (de classe damier) pairs des lignes paires et (,) 
+   les éléments (de classe damier) impairs des lignes impaires
+   auront un fond blanc. */
+tr:nth-child(2n)   .damier:nth-child(2n),
+tr:nth-child(2n+1) .damier:nth-child(2n+1){
+    color : black;
+    background : white;
+}
+/* Les éléments (de classe damier) pairs des lignes impaires et (,) 
+   les éléments (de classe damier) impairs des lignes paires
+   auront un fond noir. */
+tr:nth-child(2n+1) .damier:nth-child(2n),
+tr:nth-child(2n)   .damier:nth-child(2n+1){
+    color : white;
+    background : black;
+}
+td {
+	width : 30px;
+    heigth : 30 px;
+    border : 1px black solid;
+    text-align : center;
+    padding : 20px;
+}
