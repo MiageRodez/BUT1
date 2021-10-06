@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <!-- feuilles de styles externes et locale -->
+    <link rel="stylesheet" href="../static/css/tableaux.css" />
+		<style> /* ici commence une zone en CSS 
+               ---------------------------- */
+      body {
+        background-color  : lightblue;
+        background-image  : url(https://techguru.fr/wp-content/uploads/sites/7/2015/01/echecs-et-mat.jpg);
+      }
+
+      caption { /* titre du tableau */
+        color             :  white;
+      }
+
+      h1 {
+        color             : white;
+        text-align        : center;
+      }
+
+      p {
+        font-family       : verdana;
+        font-size         : 20px;
+      }
+  </style>
+</head>
+<body>
+
+<h1>Exemple d'ajout de classe à l'attribut class avec JS</h1>
+
+<table><caption>mini jeu d'échecs</caption>
+	<tr>
+    	<td class="damier"> <!-- ici l'attribut class de valeur "damier" est ajoutée manuellement -->
+        </td>
+        <td> <!-- ici et pour tous les TD, l'attribut class sera actualisé par un programme en JS en bas de page -->
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+</body>
+
+<script langage="javascript">
+  // le but de ce code est d'attribuer à toutes les balises
+  // td la classe "damier"
+/**************************************************************
+	Première étape : déclaration (avec var) des variables
+	      globales et éventuellement initialisation (on leur
+          affecte une valeur.
+**************************************************************/
+// HTMLcollection des td de la page (ce n'est pas un vrai tableau)
+// tds contiendra la collection de tous les td de la page
+var tds = document.getElementsByTagName("TD"); 
+// TDs est un tableau (Array) et va permettre de copier le contenu de tds pour utiliser les méthodes des tableaux (indexOf, ...)
+var TDs = []; // initialisation à tableau vide
+
+/**************************************************************
+    Parcours des éléments TD par un boucle for
+**************************************************************/
+for (let td of tds) { // td est une variable locale (déclarée avec let) dans la boucle for
+	TDs.push(td); // ajout au tableau de l'élément td
+    // ajout de "damier" à la liste des classes de l'élément td
+	td.classList.add("damier");
+    // Le contenu texte des td initialement vide, contiendra l'index (n° position) plus un (pour ne pas commencer à zéro).
+    td.innerText = TDs.indexOf(td)+1;
+}
+</script>
+</html>
+
+
