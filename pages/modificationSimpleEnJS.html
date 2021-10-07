@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exemple de changement réversible</title>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+</style>
+</head><head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<p id="demo">Cliquer sur le bouton pour changer l'aspect (le style) de ce paragraphe</p>
+
+<button onclick="maFonction()">Modifier</button>
+
+<script>
+// variables locales
+var fs = "100%", col = "black", libInit;
+var modifier = true;
+// identification des deux éléments à manipuler
+var paragraphe = document.getElementById("demo");
+// premier des boutons (il n'y en a qu'un ici).
+var bouton = document.getElementsByTagName("BUTTON")[0];
+
+libInit = bouton.innerHTML; // sauvegarde du libellé du bouton
+
+function maFonction() {
+	if (modifier) { 
+  		paragraphe.style.fontSize = "25px"; 
+  		paragraphe.style.color = "red"; 
+        bouton.innerText = "retour à l'état initial";
+  	} else {
+    	bouton.innerHTML = libInit;
+    	paragraphe.style.fontSize = fs;
+    	paragraphe.style.color    = col;
+    }
+    modifier = !modifier; // opposé du booléen
+}
+function modifierVisibilite (element, visible = true) {
+	element.display = "visible";
+}
+</script>
+
+</body>
+</html>
