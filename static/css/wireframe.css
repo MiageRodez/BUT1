@@ -40,12 +40,12 @@ nav { /* */
 
 }
 
-section { /* */
+main > section { /* */
   flex : 4;
   columns: 2 ;
  }
 
-article { /* */
+section > article { /* */
   border : double 5px pink;
   padding: 10px;
   
