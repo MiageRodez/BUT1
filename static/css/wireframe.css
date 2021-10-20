@@ -1,0 +1,68 @@
+/*╔═════════════════════════════════════════════════════════════════════════╦═══╗       
+  ║        Feuille de style principale : structure de la page               ║   ║
+  ║        --------------------------------------------------               ║   ║
+  ╠═════════════════════════════════════════════════════════════════════════╬═══╣
+  ║   Auteur : Joël Dendaletche                                             ║   ║
+  ║   Date : automne 2021                                                   ║   ║
+  ║                                                                         ║   ║
+  ╚═════════════════════════════════════════════════════════════════════════╩═══╝
+ */
+:root { /* racine du site */
+  /* définition  de variables utiles */
+  --nivGris   :   240;
+  --encre     :   rgb(var(--nivGris),var(--nivGris),var(--nivGris));
+  --fond      :   rgb(calc(255 - var(--nivGris)),calc(255 - var(--nivGris)),calc(255 - var(--nivGris)));
+}
+
+body { /* */
+  box-sizing      : border-box; /* inclus les marges externes et bordures dans la taille des éléments */
+  color           : var(--encre);
+  background-color: var(--fond);
+  padding         : 15px;
+}
+
+header { /* */
+  height      : 10%;
+}
+
+main { /* */
+  height      : 90%;
+  overflow    : auto;
+  display: flex;
+  padding: 10px;
+}
+
+aside { /* */
+  flex : 1;
+}
+
+nav { /* */
+
+}
+
+section { /* */
+  flex : 4;
+  columns: 2 ;
+ }
+
+article { /* */
+  border : double 5px pink;
+  padding: 10px;
+  
+}
+
+footer { /* */
+  height      : 10%;}
+
+div { /* à n'utiliser que si nécessaire ! */
+
+}
+
+h1 { /* */
+  border        : groove 10px orange;
+  border-radius : 10px;
+  text-align    : center;
+  padding       : 10px;
+  margin        : auto; /* centrage */
+
+}
