@@ -4,7 +4,7 @@
   ╠═════════════════════════════════════════════════════════════════════════╬═══╣
   ║   Auteur : Joël Dendaletche                                             ║   ║
   ║   Date : automne 2021                                                   ║   ║
-  ║                                                                         ║   ║
+  ║   Source : https://www.w3schools.com/howto/howto_css_dropdown.asp       ║   ║
   ╚═════════════════════════════════════════════════════════════════════════╩═══╝
  */
  /* Dropdown Button */
@@ -48,3 +48,5 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
+/* couleur du bouton exemples quand il est survolé */
+.dropdown:hover .dropbtn.exemples {background-color: lightblue;}
